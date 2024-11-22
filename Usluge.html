@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="Stylesheet" href="Stylesheet.css">
+    <script src="https://kit.fontawesome.com/590dcf6971.js" crossorigin="anonymous"></script>
+    <title>Prodavnica mobilnih telefona</title>
+</head>
+<body>
+    <h1 class="line">Land line</h1>
+    <h2>Prodavnica mobilnih telefona</h2>
+    <style>
+        :root {
+            --background-color: skyblue;
+        }
+        [data-theme='dark'] {
+            --background-color: lightgreen;
+        }
+        body {
+            background-color: var(--background-color);
+        }
+    </style>
+
+    <button id="Menjatemo">Tema</button>
+    <script>
+        function menjaboju() {
+            let currentTheme = localStorage.getItem('theme');
+            if (!currentTheme || currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.getElementById('Menjatemo').addEventListener('click', menjaboju);
+    </script>
+    <nav class="navbar">
+        <ul>
+            <li><a href="ONama.html">O nama</a></li>
+            <li><a href="Proizvodi.html">Proizvodi</a></li>
+            <li><a href="Usluge.html">Usluge</a></li>
+            <li><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Ovde možete videti sve usluge koje nudimo i njihovu cenu.</h1>
+        <div class="usluge" id="usluge"></div>
+    </main>
+
+    <script>
+    
+        let usluge = [
+            {
+                naziv: "Zamena ekrana",
+                cena: "100eur",
+                link: "Popravka.html"
+            },
+            {
+                naziv: "Popravka kućista",
+                cena: "500eur",
+                link: "Popravka.html"
+            },
+            {
+                naziv: "Prebacivanje memorije",
+                cena: "200eur",
+                link: "Popravka.html"
+            }
+        ];
+
+        let uslugeDiv = document.getElementById('usluge');
+        usluge.forEach(usluga => {
+            let div = document.createElement('div');
+            div.className = 'boxy';
+            div.innerHTML = `
+                <p>${usluga.naziv}</p>
+                <p>${usluga.cena}</p>
+                <a href="${usluga.link}">kupi</a>
+            `;
+            uslugeDiv.appendChild(div);
+        });
+    </script>
+</body>
+</html>

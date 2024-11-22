@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Stylesheet.css">
+    <script src="https://kit.fontawesome.com/590dcf6971.js" crossorigin="anonymous"></script>
+    <title>Prodavnica mobilnih telefona</title>
+</head>
+<body>
+    <h1 class="line">Land line</h1>
+    <h2>Prodavnica mobilnih telefona</h2>
+    <style>
+        :root {
+            --background-color: skyblue;
+        }
+        [data-theme='dark'] {
+            --background-color: lightgreen;
+        }
+        body {
+            background-color: var(--background-color);
+        }
+    </style>
+
+    <button id="Menjatemo">Tema</button>
+    <script>
+        function menjaboju() {
+            let currentTheme = localStorage.getItem('theme');
+            if (!currentTheme || currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.getElementById('Menjatemo').addEventListener('click', menjaboju);
+    </script>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="ONama.html">O nama</a> </li>
+
+            <li> <a href="Proizvodi.html">Proizvodi</a></li>
+
+            <li> <a href="Usluge.html">Usluge</a></li>
+
+            <li><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+       <h1>
+            Ovde možete videti sve proizvode koje nudimo i njihovu cenu.
+        </h1>
+
+        <div class="proizvodi">
+            
+
+            <div class="box"  >
+                <img class="telefoni_slike"src="Slike/smsung s22.jpg" >
+                <p>Samsung Galaxy S22+<p>
+                <p>1100eur</p>
+                <a  href="Kupovina.html">Kupi</a>
+            </div>
+            
+            <div class="box" >
+                <img class="telefoni_slike"src="Slike/iphone 11.jpg" >
+                <p>Iphone 11x</p>
+                <p>1000eur</p>
+                <a  href="Kupovina.html">Kupi</a>
+            </div>
+            
+            <div class="box"  >
+                <img class="telefoni_slike" src="Slike/samsung galaxy s20.jpg" >
+                <p>Samsung Galaxy S20+</p>
+                <p>900eur</p>
+                <a  href="Kupovina.html">Kupi</a>
+            </div>
+            
+            <div class="box"  >
+                <img class="telefoni_slike" src="Slike/honor-x9-4g-jpg.jpg" >
+                <p>Honor X9</p>
+                <p>800eur</p>
+                <a  href="Kupovina.html">Kupi</a>
+            </div>
+            
+            <div class="box"  >
+                <img class="telefoni_slike" src="Slike/motorola .jpg  ">
+                <p>Motorola G Plus</p>
+                <p>700eur</p>
+               <a  href="Kupovina.html">Kupi</a>
+            </div>
+
+        </div>
+        <br><br>
+    
+</main>
+</body>
+</html>

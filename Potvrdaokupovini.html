@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Stylesheet.css">
+    <script src="https://kit.fontawesome.com/590dcf6971.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 class="line">Land line</h1>
+    <h2>Prodavnica mobilnih telefona</h2>
+    <style>
+        :root {
+            --background-color: skyblue;
+        }
+        [data-theme='dark'] {
+            --background-color: lightgreen;
+        }
+        body {
+            background-color: var(--background-color);
+        }
+    </style>
+
+    <button id="Menjatemo">Tema</button>
+    <script>
+        function menjaboju() {
+            let currentTheme = localStorage.getItem('theme');
+            if (!currentTheme || currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.getElementById('Menjatemo').addEventListener('click', menjaboju);
+    </script>
+    <nav class="navbar">
+        <ul>
+            <li><a href="ONama.html">O nama</a></li>
+            <li><a href="Proizvodi.html">Proizvodi</a></li>
+            <li><a href="Usluge.html"> Usluge</a></li>
+            <li><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <div class="popravkastil">
+            <p class="popravkastil" id="ptpunoime"></p>
+            <p class="popravkastil" id="ptbrojtel"></p>
+            <p class="popravkastil" id="ptEmail"></p>
+            <p class="popravkastil" id="ptusluge"></p>
+        </div>
+    </main>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('ptpunoime').innerHTML = `<strong>Ime i prezime:</strong> ${localStorage.getItem('punoime')}`;
+            document.getElementById('ptbrojtel').innerHTML = `<strong>Broj telefona:</strong> ${localStorage.getItem('brojtel')}`;
+            document.getElementById('ptEmail').innerHTML = `<strong>E-mail:</strong> ${localStorage.getItem('Email')}`;
+
+            let services = [
+                localStorage.getItem('popravkaekran'),
+                localStorage.getItem('popravkakucista'),
+                localStorage.getItem('prebacivanjememorije')
+            ].filter(Boolean).join(', ');
+
+            document.getElementById('ptusluge').innerHTML = `<strong>Usluge:</strong> ${services}`;
+        }
+    </script>
+</body>
+</html>
